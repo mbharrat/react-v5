@@ -14,7 +14,7 @@
 
 - `npm install -D eslint eslint-config-prettier`
 - write a .eslintrc.json file
-- ```
+```
 {
   "extends": ["eslint:recommended", "prettier", "prettier/react"],
   "plugins": [],
@@ -34,7 +34,7 @@
 
 ## gitignore
 
-- ```
+```
 .DS_Store
 node_modules/
 .cache/
