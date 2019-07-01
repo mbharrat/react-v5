@@ -14,12 +14,35 @@
 
 - `npm install -D eslint eslint-config-prettier`
 - write a .eslintrc.json file
-- `{ "extends": ["eslint:recommended", "prettier", "prettier/react"], "plugins": [], "parserOptions": { "ecmaVersion": 2018, "sourceType": "module", "ecmaFeatures": { "jsx": true } }, "env": { "es6": true, "browser": true, "node": true } }`
+- ```
+{
+  "extends": ["eslint:recommended", "prettier", "prettier/react"],
+  "plugins": [],
+  "parserOptions": {
+    "ecmaVersion": 2018,
+    "sourceType": "module",
+    "ecmaFeatures": { "jsx": true }
+  },
+  "env": {
+    "es6": true,
+    "browser": true,
+    "node": true
+  }
+}
+```
 - needs something in text editior to use linting
 
 ## gitignore
 
-- `.DS_Store node_modules/ .cache/ dist/ coverage/ .env`
+- ```
+.DS_Store
+node_modules/
+.cache/
+dist/
+coverage/
+.env
+package-lock.json
+```
 - pretty basic git ignore
 
 ## Parcel
