@@ -1,7 +1,9 @@
 import React from "react";
+import Details from "./Details";
 import { render } from "react-dom";
 // import Pet from "./Pet";
 import SearchParams from "./SearchParams";
+import { Router, Link } from "@reach/router";
 
 //stateful class component
 class App extends React.Component {
@@ -9,20 +11,15 @@ class App extends React.Component {
     alert("You clicked the button");
   }
   render() {
-    //   return (
-    //     <div>
-    //       <h1>Adopt Me!</h1>
-    //       <Pet name="Scamp" animal="Dog" breed="Yorkie" />
-    //       <Pet name="Teddy" animal="Dog" breed="Yorkie" />
-    //       <Pet name="Blondie" animal="Rodent" breed="Gerbil" />
-    //       <button onClick={this.handleTitleClick}></button>
-    //     </div>
-    //   );
-    // }
     return (
       <div>
-        <h1 id="something-important">Adopt Me!</h1>
-        <SearchParams />
+        <header>
+          <Link to="/">Adopt Me!</Link>
+        </header>
+        <Router>
+          <SearchParams path="/" />
+          <Details path="/details/:id" />
+        </Router>
       </div>
     );
   }

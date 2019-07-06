@@ -140,6 +140,95 @@ useEffect(() => {
 
 ---
 
+## Dev Tools
+---
+- make sure NODE_ENV=development
+- parcel takes care of it for you, but for in general
+- React.StrictMode
+```
+return (
+      <React.StrictMode>
+      <div>
+        <h1 id="something-important">Adopt Me!</h1>
+        <SearchParams />
+      </div>
+      </React.StrictMode>
+    );
+  }
+```
+- React developer tools for chrome/firefox/whatever browser
+- $r is whatever is selected in react dev tools
+
+---
+
+## Async and Routing
+---
+### Async
+Example async function
+```
+async function requestPets() {
+    const { animals } = await pet.animals({
+      location,
+      breed,
+      type: animal
+    });
+
+    setPets(animals || []);
+  }
+```
+- When using a form include in the onSubmit event handler `onSubmit={e => {
+          e.preventDefault();
+        }}`
+Add this in package.json for list of supported browsers (defualt is all), and very modern browsers support async await
+```
+"browserslist": [
+    "last 2 Chrome versions",
+    "last 2 ChromeAndroid versions",
+    "last 2 Firefox versions",
+    "last 2 FirefoxAndroid versions",
+    "last 2 Safari versions",
+    "last 2 iOS versions",
+    "last 2 Edge versions",
+    "last 2 Opera versions",
+    "last 2 OperaMobile versions"
+  ]
+```
+- data flows down but not up (one-way data flow), the parent can effect the child but the child can not effect the parent
+
+
+
+### Router
+- react router and reach router (very accessibility focused)
+- `npm install -D @reach/router`
+- import statement `import { Router, Link } from "@reach/router";`
+
+**example of how format looks**
+```
+<Router>
+          <SearchParams path="/" />
+          <Details path="/details/:id" />
+</Router>
+```
+
+**Example of how Link works (this makes the Adopt Me header link back to /)**
+```
+<header>
+          <Link to="/">Adopt Me!</Link>
+ </header>
+```
+
+**Cool way to see props of router**
+```
+const Details = props => {
+  return (
+    <pre>
+      <code>{JSON.stringify(props, null, 4)}</code>
+    </pre>
+  );
+};
+```
+---
+
 
 
 
