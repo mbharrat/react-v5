@@ -2,6 +2,16 @@
 
 ---
 
+## Syntax
+---
+Use the following key combination to pull up the command palette:
+`Ctrl + Shift + p`
+
+then type:
+`ssjsx`
+
+---
+
 ## Installing Prettier
 ---
 - npm install -D prettier
@@ -9,6 +19,8 @@
 - npx prettier App.js --write
 - install extension to prettier in text editor
 - write a .prettierrc file ({}) means default settings
+
+---
 
 ## Installing ESLint
 ---
@@ -228,6 +240,51 @@ const Details = props => {
 };
 ```
 ---
+
+## Class Components
+- `componentDidMount()` runs when it first start up but no more
+
+Need to do this so class component can use props, hands props to React.Component to use
+```
+constructor(props) {
+    super(props);
+  }
+```
+`npm install -D babel-eslint @babel/core @babel/preset-env @babel/plugin-proposal-class-properties @babel/preset-react`
+- this is to not use constructor like this
+```
+constructor(props) {
+    super(props);
+
+    this.state = { loading: true };
+  }
+```
+
+and use it like this
+```
+state = {loading: true}
+```
+- create `.babelrc`
+```
+{
+    "presets": ["@babel/preset-react", "@babel/preset-env"],
+    "plugins": ["@babel/plugin-proposal-class-properties"]
+}
+```
+- presets-react : brings in all things react needs (transpilation around jsx)
+- preset-env : transpile code for environment you specify (looking at browsers)
+  - can import google analytics
+- plugins: allows us to do above syntax
+- in `.eslintrc.json`
+- add `"parser": "babel-eslint"`
+- no hooks
+- this.props is immutable (can not change)
+```
+static getDerivedStateFromProps({ media }){}
+```
+- when passing functions into children or event listeners, use an arrow function
+
+
 
 
 
